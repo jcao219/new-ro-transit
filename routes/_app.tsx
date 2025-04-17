@@ -2,6 +2,8 @@
 import { type PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
 
+const SITE_NAME = "NewRoTransitInfo";
+
 export default function App({ Component }: PageProps) {
   return (
     <html lang="en">
@@ -19,23 +21,21 @@ export default function App({ Component }: PageProps) {
           crossOrigin=""
         />
       </Head>
-      <body class="bg-gray-50 text-gray-800">
-        <header class="bg-white shadow-md sticky top-0 z-10">
-          <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <body class="bg-gray-100 text-gray-800">
+          <nav class="container mx-auto flex justify-between items-center p-4">
             <a href="/" class="text-2xl font-bold text-blue-700 hover:text-blue-800">
-              NewRo Connect
+              {SITE_NAME}
             </a>
             <div class="space-x-4">
-              <a href="/" class="text-gray-600 hover:text-blue-600 font-medium">Home</a>
-              <a href="/commute" class="text-gray-600 hover:text-blue-600 font-medium">Commute Times</a>
-              <a href="/map" class="text-gray-600 hover:text-blue-600 font-medium">Transit Map</a>
+              <a href="/" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+              <a href="/commute" class="text-gray-700 hover:text-blue-600 font-medium">Commute</a>
+              <a href="/map" class="text-gray-700 hover:text-blue-600 font-medium">Map</a>
               {/* Add links to future pages: /about, /landmarks etc. */}
             </div>
           </nav>
-        </header>
 
         {/* Render the specific page component here */}
-        <main class="container mx-auto p-4 md:p-6 mt-4">
+        <main class="container mx-auto p-4 md:p-6">
           <Component />
         </main>
 
