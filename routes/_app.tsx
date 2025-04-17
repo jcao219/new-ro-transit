@@ -40,8 +40,13 @@ export default function App({ Component }: PageProps) {
         </main>
 
         <footer class="text-center py-6 mt-10 text-gray-500 text-sm border-t border-gray-200">
-          <p>&copy; {new Date().getFullYear()} | Showcasing New Rochelle Transit Advantages</p>
-          <p>Built with Deno & Fresh</p>
+          <p>&copy; {new Date().getFullYear()} | Jimmy C (VimPro) of Downtown New Rochelle</p>
+          <span class="row">
+            <label for="src_repo">Built with Deno & Fresh & Gemini 2.5: </label>
+            <a id="src_repo" href="https://github.com/jcao219/new-ro-transit" class="text-blue-600 hover:text-blue-800">
+              GitHub Repository
+            </a>
+          </span>
         </footer>
       </body>
     </html>

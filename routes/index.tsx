@@ -10,14 +10,10 @@ export default function Home() {
         <title>New Rochelle: Your Connected Urban Oasis</title>
       </Head>
       {/* Hero Section */}
-      {/*<div
-        class="min-h-[100vh] shadow-lg flex items-center justify-center text-center p-6"
-        style={{ background: `url('${asset(heroGif)}') center center no-repeat` }}
-      ></div>*/}
       <div class="mb-8"> {/* Add margin below the image */}
         <img
           src={heroGif}
-          alt="Scenic view of New Rochelle" // Add descriptive alt text
+          alt="Scenic views of New Rochelle" // Add descriptive alt text
           class="w-full h-auto max-h-[58vh] object-cover rounded-lg shadow-lg"
         />
       </div>
