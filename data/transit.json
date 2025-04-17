@@ -1,0 +1,73 @@
+{
+  "commutes": [
+    {
+      "destination": "Grand Central Terminal",
+      "method": "Metro-North (New Haven Line)",
+      "time": "~33 min. Fastest train 26 min.",
+      "frequency": "Every ~15-30 min (Peak/Off-Peak)",
+      "notes": "Primary direct route to Midtown East.",
+      "coords": [40.7527, -73.9772]
+    },
+    {
+      "destination": "Penn Station (Moynihan Train Hall)",
+      "method": "Amtrak (Northeast Regional)",
+      "time": "~28-35 min",
+      "frequency": "~9-10 trains/day",
+      "notes": "Direct route to Midtown West. Check schedules.",
+      "coords": [40.7506, -73.9935]
+    },
+    {
+      "destination": "Penn Station (Via GCT)",
+      "method": "Metro-North + Subway/Walk",
+      "time": "~42-49 min",
+      "frequency": "Very Frequent",
+      "notes": "Transfer at Grand Central.",
+      "coords": [40.7506, -73.9935]
+    },
+    {
+      "destination": "Harlem-125th Street",
+      "method": "Metro-North (New Haven Line)",
+      "time": "~25 min",
+      "frequency": "Every ~15-30 min",
+      "notes": "Easy access to Upper Manhattan & subway transfers.",
+      "coords": [40.8103, -73.9376]
+    },
+    {
+      "destination": "Union Square Area",
+      "method": "Metro-North + Subway (4/5/6)",
+      "time": "~42-50 min",
+      "frequency": "Very Frequent",
+      "notes": "Via Grand Central or 125th St transfer.",
+      "coords": [40.7359, -73.9904]
+    },
+    {
+      "destination": "Times Square Area",
+      "method": "Metro-North + Subway/Shuttle/Walk",
+      "time": "~36-43 min",
+      "frequency": "Very Frequent",
+      "notes": "Via Grand Central.",
+      "coords": [40.7580, -73.9855]
+    },
+    {
+      "destination": "Financial District (Fulton St)",
+      "method": "Metro-North + Subway (4/5)",
+      "time": "~50 min",
+      "frequency": "Very Frequent",
+      "notes": "Via Grand Central or 125th St transfer.",
+      "coords": [40.7103, -74.0073]
+    },
+    {
+      "destination": "Stamford, CT",
+      "method": "Metro-North (New Haven Line)",
+      "time": "~25 min",
+      "frequency": "Every ~15-30 min",
+      "notes": "Major nearby CT business hub.",
+      "coords": [41.0473, -73.5415]
+    }
+  ],
+  "newRochelleStation": {
+      "name": "New Rochelle Station",
+      "coords": [40.9075, -73.7825],
+      "notes": "Metro-North & Amtrak Hub"
+  }
+}
