@@ -18,10 +18,10 @@ export default function InteractiveMap() {
         if (mapRef.current && !mapInstance.current) {
           // Define locations
           const nrStation = L.latLng(40.907, -73.782); // Approx. coords
-          const pelhamStation = L.latLng(40.887, -73.826); // Pelham Station
-          const mtVernonEastStation = L.latLng(40.911, -73.835); // Mt. Vernon East Station
+          const pelhamStation = L.latLng(40.91013827102374, -73.80883213852191); // Pelham Station
+          const mtVernonEastStation = L.latLng(40.912269892695534, -73.83190944773806); // Mt. Vernon East Station
           const fordhamStation = L.latLng(40.861, -73.885); // Fordham Station
-          const harlemStation = L.latLng(40.811, -73.943); // Harlem Station
+          const harlem125thStStation = L.latLng(40.80525364195717, -73.9389457294409); // Harlem-125th St Station
           const grandCentral = L.latLng(40.7527, -73.9772);
           const pennStation = L.latLng(40.7506, -73.9935);
           const marbleHillManhattan = L.latLng(40.87434625287056, -73.91011525552229); // Marble Hill, Manhattan
@@ -49,7 +49,7 @@ export default function InteractiveMap() {
             pelhamStation,
             mtVernonEastStation,
             fordhamStation,
-            harlemStation,
+            harlem125thStStation,
             grandCentral
           ], { color: 'red' }).addTo(mapInstance.current).bindPopup("Metro-North Line");
           L.polyline([nrStation, pennStation], {color: 'blue'}).addTo(mapInstance.current).bindPopup("Amtrak Route");
