@@ -20,6 +20,7 @@ export default function InteractiveMap() {
           const nrStation = L.latLng(40.907, -73.782); // Approx. coords
           const grandCentral = L.latLng(40.7527, -73.9772);
           const pennStation = L.latLng(40.7506, -73.9935);
+          const marbleHillManhattan = L.latLng(40.87434625287056, -73.91011525552229); // Marble Hill, Manhattan
 
           // Initialize map
           mapInstance.current = L.map(mapRef.current).setView(L.latLng(40.83, -73.88), 11); // Centered view
@@ -35,6 +36,8 @@ export default function InteractiveMap() {
             .bindPopup("<b>Grand Central Terminal</b><br>~38 min via Metro-North");
           L.marker(pennStation).addTo(mapInstance.current)
             .bindPopup("<b>Penn Station (Moynihan)</b><br>~30 min via Amtrak");
+          L.marker(marbleHillManhattan).addTo(mapInstance.current)
+            .bindPopup("<b>Marble Hill, Manhattan</b><br>7 miles away or 11 miles by car");
 
           // Optional: Draw lines
           L.polyline([nrStation, grandCentral], {color: 'blue'}).addTo(mapInstance.current).bindPopup("Metro-North Line");
