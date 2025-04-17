@@ -51,8 +51,13 @@ export default function InteractiveMap() {
             fordhamStation,
             harlem125thStStation,
             grandCentral
-          ], { color: 'red' }).addTo(mapInstance.current).bindPopup("Metro-North Line");
-          L.polyline([nrStation, pennStation], {color: 'blue'}).addTo(mapInstance.current).bindPopup("Amtrak Route");
+          ], { color: 'red' }).addTo(mapInstance.current)
+                              .bindTooltip("Metro-North Line", { permanent: true, direction: 'top' })
+                              .openTooltip(); // Open tooltip on load.
+          L.polyline([nrStation, pennStation], { color: 'blue' })
+           .addTo(mapInstance.current)
+           .bindTooltip("Amtrak", { permanent: true, direction: 'top' })
+           .openTooltip(); // Open tooltip on load.
         }
       })
       .catch(err => console.error("Failed to load Leaflet:", err));
