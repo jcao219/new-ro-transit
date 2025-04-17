@@ -14,7 +14,7 @@ export default function Home() {
         <img
           src={heroGif}
           alt="Scenic views of New Rochelle" // Add descriptive alt text
-          class="w-full h-auto max-h-[58vh] object-cover rounded-lg shadow-lg"
+          class="w-full h-auto max-h-[48vh] object-cover rounded-lg shadow-lg"
         />
       </div>
       <div
