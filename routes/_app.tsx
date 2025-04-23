@@ -30,6 +30,7 @@ export default function App({ Component }: PageProps) {
               <a href="/" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
               <a href="/commute" class="text-gray-700 hover:text-blue-600 font-medium">Commute</a>
               <a href="/map" class="text-gray-700 hover:text-blue-600 font-medium">Map</a>
+            <a href="/restaurants" class="text-gray-700 hover:text-blue-600 font-medium">Map</a>
               {/* Add links to future pages: /about, /landmarks etc. */}
             </div>
           </nav>

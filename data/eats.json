@@ -1,0 +1,18 @@
+{
+    "restaurants": [
+      {
+        "name": "Roc N' Ramen",
+        "cuisine": "Authentic Japanese Ramen with Unique Caribbean Influence",
+        "area": "Vanguard District",
+        "notes": "Delicious take on Ramen and Donburi. For lunch or dinner.",
+        "website": "https://www.rocnramen.com/"
+      },
+      {
+        "name": "Maria's",
+        "cuisine": "Italian",
+        "area": "Downtown",
+        "notes": "Michelin-recommended",
+        "website": "#"
+      }
+    ]
+  }
