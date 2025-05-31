@@ -13,6 +13,25 @@
         "area": "Downtown",
         "notes": "Michelin-recommended",
         "website": "#"
+      },
+      {
+        "name": "The Cozy Corner Cafe",
+        "cuisine": "American Comfort Food",
+        "area": "West End",
+        "notes": "Great for breakfast and brunch."
+      },
+      {
+        "name": "Spice Route",
+        "cuisine": "Indian",
+        "area": "North Avenue",
+        "notes": "Authentic Indian dishes, wide vegetarian selection.",
+        "website": "#"
+      },
+      {
+        "name": "Bella Luna",
+        "cuisine": "Italian Trattoria",
+        "area": "Downtown",
+        "notes": "Wood-fired pizzas and homemade pasta."
       }
     ]
   }
