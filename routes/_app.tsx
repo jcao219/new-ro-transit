@@ -2,7 +2,7 @@
 import { type PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
 
-const SITE_NAME = "NewRoTransitInfo";
+const SITE_NAME = "New Rochelle Info";
 
 export default function App({ Component }: PageProps) {
   return (
