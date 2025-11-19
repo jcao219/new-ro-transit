@@ -1,8 +1,9 @@
 // routes/map.tsx
 import { Head } from "fresh/runtime";
+import { define } from "../utils.ts";
 import InteractiveMap from "../islands/InteractiveMap.tsx"; // Import the island
 
-export default function MapPage() {
+export default define.page(function MapPage() {
   return (
     <>
       <Head>
@@ -20,4 +21,4 @@ export default function MapPage() {
       </div>
     </>
   );
-}
+});

@@ -1,11 +1,15 @@
 // routes/restaurants.tsx
+import { page } from "fresh";
 import { Head } from "fresh/runtime";
-import { FreshContext, PageProps } from "fresh";
-// Import the restaurant data
+import { define } from "../utils.ts";
+// Import the full JSON structure
 import restaurantData from "../data/eats.json" with { type: "json" };
-import { Handlers } from "fresh/compat";
 
-// Define the shape of a single restaurant item
+type TransitData = {
+  restaurants: RestaurantInfo[];
+};
+
+// Define the shape of a single restaurant
 interface RestaurantInfo {
   name: string;
   cuisine: string;
@@ -14,24 +18,19 @@ interface RestaurantInfo {
   website?: string; // Optional website link
 }
 
-// Define the data structure passed to the page component
-interface RestaurantPageData {
-  restaurants: RestaurantInfo[];
-}
-
 // Handler to load data (runs on the server)
-export const handler: Handlers<RestaurantPageData> = {
-  GET(ctx: FreshContext) {
+export const handler = define.handlers({
+  GET(_ctx) {
     // Extract the restaurants array from the imported JSON data
     const restaurants: RestaurantInfo[] = restaurantData.restaurants;
     // Pass the data to the rendering context
-    return ctx.render({ restaurants });
+    return page({ restaurants });
   },
-};
+});
 
 // Page component (receives data via props)
-export default function RestaurantPage(
-  { data }: PageProps<RestaurantPageData>,
+export default define.page<typeof handler>(function RestaurantPage(
+  { data },
 ) {
   const { restaurants } = data; // Extract restaurants array from props
 
@@ -55,7 +54,7 @@ export default function RestaurantPage(
 
         {/* Restaurant Cards Grid */}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {restaurants.map((resto, index) => (
+          {restaurants.map((resto: RestaurantInfo, index: number) => (
             <div
               key={index}
               class="bg-white p-5 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200 flex flex-col justify-between"
@@ -101,4 +100,4 @@ export default function RestaurantPage(
       </div>
     </>
   );
-}
+});

@@ -1,10 +1,10 @@
 // routes/_app.tsx
-import { type PageProps } from "fresh";
 import { Head } from "fresh/runtime";
+import { define } from "../utils.ts";
 
 const SITE_NAME = "New Rochelle Info";
 
-export default function App({ Component }: PageProps) {
+export default define.page(function App({ Component }) {
   return (
     <html lang="en">
       <Head>
@@ -21,7 +21,7 @@ export default function App({ Component }: PageProps) {
         <link
           rel="stylesheet"
           href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-          crossOrigin=""
+          crossOrigin="anonymous"
         />
       </Head>
       <body class="bg-gray-100 text-gray-800">
@@ -82,4 +82,4 @@ export default function App({ Component }: PageProps) {
       </body>
     </html>
   );
-}
+});

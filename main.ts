@@ -1,4 +1,4 @@
-import "$std/dotenv/load.ts";
+import "@std/dotenv/load";
 
 import { App, staticFiles } from "fresh";
 

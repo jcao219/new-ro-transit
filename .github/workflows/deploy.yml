@@ -32,5 +32,3 @@ jobs:
           project: "new-ro-transit"
           entrypoint: "main.ts"
           root: "."
-          
-          

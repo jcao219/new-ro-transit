@@ -1,7 +1,8 @@
 // routes/index.tsx
-import { asset, Head } from "fresh/runtime";
+import { Head } from "fresh/runtime";
+import { define } from "../utils.ts";
 
-export default function Home() {
+export default define.page(function Home() {
   const heroGif = "new-ro-gif.gif"; // Or "your-image-name.png", etc.
 
   return (
@@ -64,4 +65,4 @@ export default function Home() {
       </div>
     </>
   );
-}
+});

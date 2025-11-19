@@ -1,9 +1,9 @@
 // routes/commute.tsx
+import { page } from "fresh";
 import { Head } from "fresh/runtime";
-import { PageProps } from "fresh";
+import { define } from "../utils.ts";
 // Import the full JSON structure
 import transitData from "../data/transit.json" with { type: "json" };
-import { Handlers } from "fresh/compat";
 
 type TransitData = {
   commutes: CommuteInfo[];
@@ -19,23 +19,18 @@ interface CommuteInfo {
   coords?: [number, number]; // Optional coordinates
 }
 
-// Define the data structure passed to the page component
-interface CommutePageData {
-  commutes: CommuteInfo[];
-}
-
 // Handler to load data (runs on the server)
-export const handler: Handlers<CommutePageData> = {
-  GET(ctx) {
+export const handler = define.handlers({
+  GET(_ctx) {
     // Extract the commutes array from the imported JSON data
     const commutes: CommuteInfo[] = transitData.commutes as CommuteInfo[];
     // Pass the data to the rendering context
-    return ctx.render({ commutes });
+    return page({ commutes });
   },
-};
+});
 
 // Page component (receives data via props)
-export default function CommutePage({ data }: PageProps<CommutePageData>) {
+export default define.page<typeof handler>(function CommutePage({ data }) {
   const { commutes } = data; // Extract commutes array from props
 
   return (
@@ -53,7 +48,7 @@ export default function CommutePage({ data }: PageProps<CommutePageData>) {
           and other key destinations.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {commutes.map((item, index) => (
+          {commutes.map((item: CommuteInfo, index: number) => (
             <div
               key={index}
               class="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200 flex flex-col justify-between"
@@ -83,4 +78,4 @@ export default function CommutePage({ data }: PageProps<CommutePageData>) {
       </div>
     </>
   );
-}
+});

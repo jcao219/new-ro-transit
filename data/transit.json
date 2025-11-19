@@ -66,8 +66,8 @@
     }
   ],
   "newRochelleStation": {
-      "name": "New Rochelle Station",
-      "coords": [40.9075, -73.7825],
-      "notes": "Metro-North Train, Bee-Line Bus, & Amtrak Hub"
+    "name": "New Rochelle Station",
+    "coords": [40.9075, -73.7825],
+    "notes": "Metro-North Train, Bee-Line Bus, & Amtrak Hub"
   }
 }
