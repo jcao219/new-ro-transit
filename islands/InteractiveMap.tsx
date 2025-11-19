@@ -1,10 +1,12 @@
 // islands/InteractiveMap.tsx
-import { Head } from "$fresh/runtime.ts";
+import { Head } from "fresh/runtime";
 import { useEffect, useRef } from "preact/hooks";
 
 // TODO: Add types to the leaflet map.
 async function loadLeaflet(mapDivRef: HTMLDivElement): Promise<unknown> {
-  const L = await import("https://unpkg.com/leaflet@1.9.4/dist/leaflet-src.esm.js");
+  const L = await import(
+    "https://unpkg.com/leaflet@1.9.4/dist/leaflet-src.esm.js"
+  );
   // Define locations
   const nrStation = L.latLng(40.907, -73.782); // Approx. coords
   const pelhamStation = L.latLng(40.91013827102374, -73.80883213852191); // Pelham Station
@@ -18,8 +20,9 @@ async function loadLeaflet(mapDivRef: HTMLDivElement): Promise<unknown> {
   // Initialize map
   const map = L.map(mapDivRef).setView(L.latLng(40.83, -73.88), 11); // Centered view
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
 
   // Add Markers
@@ -30,7 +33,9 @@ async function loadLeaflet(mapDivRef: HTMLDivElement): Promise<unknown> {
   L.marker(pennStation).addTo(map)
     .bindPopup("<b>Penn Station (Moynihan)</b><br>~30 min via Amtrak");
   L.marker(marbleHillManhattan).addTo(map)
-    .bindPopup("<b>Marble Hill, Manhattan</b><br>7 miles away or 11 miles by car");
+    .bindPopup(
+      "<b>Marble Hill, Manhattan</b><br>7 miles away or 11 miles by car",
+    );
 
   // Optional: Draw lines
   L.polyline([
@@ -39,17 +44,17 @@ async function loadLeaflet(mapDivRef: HTMLDivElement): Promise<unknown> {
     mtVernonEastStation,
     fordhamStation,
     harlem125thStStation,
-    grandCentral
-  ], { color: 'red' }).addTo(map)
-                      .bindTooltip("Metro-North Line", { permanent: true, direction: 'top' })
-                      .openTooltip(); // Open tooltip on load.
-  L.polyline([nrStation, pennStation], { color: 'blue' })
-    .addTo(map)
-    .bindTooltip("Amtrak", { permanent: true, direction: 'top' })
+    grandCentral,
+  ], { color: "red" }).addTo(map)
+    .bindTooltip("Metro-North Line", { permanent: true, direction: "top" })
     .openTooltip(); // Open tooltip on load.
-  
+  L.polyline([nrStation, pennStation], { color: "blue" })
+    .addTo(map)
+    .bindTooltip("Amtrak", { permanent: true, direction: "top" })
+    .openTooltip(); // Open tooltip on load.
+
   return map;
-};
+}
 
 export default function InteractiveMap() {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -59,8 +64,8 @@ export default function InteractiveMap() {
     // Dynamically import and load Leaflet only on the client-side.
     if (mapRef.current != null && mapInstance.current == null) {
       loadLeaflet(mapRef.current)
-        .then(map => mapInstance.current = map)
-        .catch(err => console.error("Failed to load Leaflet:", err));
+        .then((map) => mapInstance.current = map)
+        .catch((err) => console.error("Failed to load Leaflet:", err));
     }
 
     // Cleanup function to remove map on component unmount
@@ -80,8 +85,8 @@ export default function InteractiveMap() {
       </Head>
       {/* The div needs explicit height */}
       <div ref={mapRef} style={{ height: "60vh", width: "100%" }}>
-         {/* Map will be rendered here by Leaflet */}
-         Loading map...
+        {/* Map will be rendered here by Leaflet */}
+        Loading map...
       </div>
     </>
   );

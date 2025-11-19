@@ -1,12 +1,13 @@
 // routes/commute.tsx
-import { Head } from "$fresh/runtime.ts";
-import { Handlers, PageProps } from "$fresh/server.ts";
+import { Head } from "fresh/runtime";
+import { PageProps } from "fresh";
 // Import the full JSON structure
 import transitData from "../data/transit.json" with { type: "json" };
+import { Handlers } from "fresh/compat";
 
 type TransitData = {
-    commutes: CommuteInfo[];
-}
+  commutes: CommuteInfo[];
+};
 
 // Define the shape of a single commute item
 interface CommuteInfo {
@@ -25,7 +26,7 @@ interface CommutePageData {
 
 // Handler to load data (runs on the server)
 export const handler: Handlers<CommutePageData> = {
-  GET(_req, ctx) {
+  GET(ctx) {
     // Extract the commutes array from the imported JSON data
     const commutes: CommuteInfo[] = transitData.commutes as CommuteInfo[];
     // Pass the data to the rendering context
@@ -43,33 +44,42 @@ export default function CommutePage({ data }: PageProps<CommutePageData>) {
         <title>New Rochelle Commute Times to NYC & Beyond</title>
       </Head>
       <div class="max-w-screen-lg mx-auto">
-        <h1 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Commuting Made Easy</h1>
+        <h1 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
+          Commuting Made Easy
+        </h1>
         <p class="mb-8 text-lg text-gray-600">
-          New Rochelle's strategic location on Metro-North's New Haven Line and Amtrak's Northeast Corridor offers fast, reliable access to Manhattan and other key destinations.
+          New Rochelle's strategic location on Metro-North's New Haven Line and
+          Amtrak's Northeast Corridor offers fast, reliable access to Manhattan
+          and other key destinations.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {commutes.map((item, index) => (
-            <div key={index} class="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200 flex flex-col justify-between">
+            <div
+              key={index}
+              class="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200 flex flex-col justify-between"
+            >
               <div>
-                  <h2 class="text-xl font-semibold mb-2 text-blue-700">{item.destination}</h2>
-                  <p class="text-sm text-gray-500 mb-2">{item.method}</p>
-                  <p class="mb-1">
-                    <span class="font-medium">Est. Time:</span>
-                    <span class="font-bold text-green-700 ml-1">{item.time}</span>
-                  </p>
-                  <p class="text-sm mb-3">
-                    <span class="font-medium">Frequency:</span> {item.frequency}
-                  </p>
+                <h2 class="text-xl font-semibold mb-2 text-blue-700">
+                  {item.destination}
+                </h2>
+                <p class="text-sm text-gray-500 mb-2">{item.method}</p>
+                <p class="mb-1">
+                  <span class="font-medium">Est. Time:</span>
+                  <span class="font-bold text-green-700 ml-1">{item.time}</span>
+                </p>
+                <p class="text-sm mb-3">
+                  <span class="font-medium">Frequency:</span> {item.frequency}
+                </p>
               </div>
               <p class="text-xs text-gray-600 mt-2 italic">{item.notes}</p>
             </div>
           ))}
         </div>
-         <div class="mt-8 text-center">
-             <a href="/map" class="text-blue-600 hover:underline font-medium">
-                View these on the interactive map &rarr;
-             </a>
-         </div>
+        <div class="mt-8 text-center">
+          <a href="/map" class="text-blue-600 hover:underline font-medium">
+            View these on the interactive map &rarr;
+          </a>
+        </div>
       </div>
     </>
   );

@@ -1,5 +1,5 @@
 // routes/map.tsx
-import { Head } from "$fresh/runtime.ts";
+import { Head } from "fresh/runtime";
 import InteractiveMap from "../islands/InteractiveMap.tsx"; // Import the island
 
 export default function MapPage() {
@@ -14,7 +14,9 @@ export default function MapPage() {
         <p class="mb-8 text-lg">Visualize New Rochelle's connection to NYC.</p>
         {/* Render the island component */}
         <InteractiveMap />
-         <a href="/" class="inline-block mt-8 text-blue-600 hover:underline">&larr; Back Home</a>
+        <a href="/" class="inline-block mt-8 text-blue-600 hover:underline">
+          &larr; Back Home
+        </a>
       </div>
     </>
   );
