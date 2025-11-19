@@ -80,12 +80,14 @@ export default function InteractiveMap() {
   return (
     <>
       <Head>
-        {/* Leaflet CSS is loaded in _app.tsx */}
-        {/* Ensure Leaflet JS is loaded before this component renders fully */}
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          crossOrigin="anonymous"
+        />
       </Head>
       {/* The div needs explicit height */}
       <div ref={mapRef} style={{ height: "60vh", width: "100%" }}>
-        {/* Map will be rendered here by Leaflet */}
         Loading map...
       </div>
     </>

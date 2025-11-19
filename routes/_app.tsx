@@ -17,13 +17,8 @@ export default define.page(function App({ Component }) {
         />
         {/* Link to the Tailwind CSS output file */}
         <link rel="stylesheet" href="/styles.css" />
-        {/* Link to Leaflet CSS (Essential for the map island) */}
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-          crossOrigin="anonymous"
-        />
       </Head>
+
       <body class="bg-gray-100 text-gray-800">
         <nav class="container mx-auto flex justify-between items-center p-4">
           <a
