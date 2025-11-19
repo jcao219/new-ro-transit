@@ -19,11 +19,13 @@ export default function PremiumMap(
 ) {
     const mapContainer = useRef<HTMLDivElement>(null);
     const map = useRef<mapboxgl.Map | null>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
     const locationToMarker = useRef(new Map<Location, mapboxgl.Marker>());
     const [activeLocation, setActiveLocation] = useState<Location | undefined>();
     const [filter, setFilter] = useState<"all" | "restaurant" | "landmark">(
         "all",
     );
+    const [isFullscreen, setIsFullscreen] = useState(false);
 
     useEffect(() => {
         if (map.current || !mapContainer.current) return;
@@ -104,12 +106,40 @@ export default function PremiumMap(
         });
     };
 
+    const toggleFullscreen = async () => {
+        if (!containerRef.current) return;
+
+        try {
+            if (!document.fullscreenElement) {
+                await containerRef.current.requestFullscreen();
+                setIsFullscreen(true);
+            } else {
+                await document.exitFullscreen();
+                setIsFullscreen(false);
+            }
+        } catch (err) {
+            console.error("Error toggling fullscreen:", err);
+        }
+    };
+
+    // Listen for fullscreen changes (e.g., user pressing ESC)
+    useEffect(() => {
+        const handleFullscreenChange = () => {
+            setIsFullscreen(!!document.fullscreenElement);
+        };
+
+        document.addEventListener("fullscreenchange", handleFullscreenChange);
+        return () => {
+            document.removeEventListener("fullscreenchange", handleFullscreenChange);
+        };
+    }, []);
+
     const filteredLocations = locations.filter(
         (loc) => filter === "all" || loc.type === filter,
     );
 
     return (
-        <div class="flex w-full h-screen">
+        <div ref={containerRef} class="flex w-full h-screen">
             {/* Glassmorphism Sidebar - Sticks to left */}
             <div class="w-80 bg-black/30 backdrop-blur-md border-r border-white/10 p-6 text-white overflow-y-auto shadow-2xl z-10 hidden md:block">
                 <h1 class="text-2xl font-bold mb-2 text-gray-200">
@@ -185,6 +215,24 @@ export default function PremiumMap(
             {/* Map Container - Takes remaining space */}
             <div class="flex-1 relative">
                 <div ref={mapContainer} class="absolute inset-0 w-full h-full" />
+
+                {/* Fullscreen Button */}
+                <button
+                    type="button"
+                    onClick={toggleFullscreen}
+                    class="absolute top-4 right-4 bg-white hover:bg-gray-100 text-gray-800 p-3 rounded-lg shadow-lg transition-all z-10"
+                    title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
+                >
+                    {isFullscreen ? (
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm0-4a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm0 8a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd" />
+                        </svg>
+                    ) : (
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 11-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 010-2h4a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12zm-9 7a1 1 0 012 0v1.586l2.293-2.293a1 1 0 111.414 1.414L6.414 15H8a1 1 0 010 2H4a1 1 0 01-1-1v-4zm13-1a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 010-2h1.586l-2.293-2.293a1 1 0 111.414-1.414L15 13.586V12a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    )}
+                </button>
 
                 {/* Mobile Bottom Sheet (Simplified) */}
                 <div class="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md border border-white/10 rounded-xl p-4 md:hidden z-10">
