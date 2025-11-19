@@ -1,0 +1,67 @@
+{
+  "restaurants": [
+    {
+      "name": "Roc N' Ramen",
+      "cuisine": "Authentic Japanese Ramen with Unique Caribbean Influence",
+      "area": "Downtown / Vanguard District",
+      "notes": "Delicious take on Ramen and Donburi. For lunch or dinner.",
+      "website": "https://www.rocnramen.com/"
+    },
+    {
+      "name": "Maria's",
+      "cuisine": "Italian",
+      "area": "Downtown (East)",
+      "notes": "Michelin-recommended",
+      "website": "https://www.mariasnewrochelle.com/"
+    },
+    {
+      "name": "Dubrovnik Restaurant",
+      "cuisine": "Croatian / Mediterranean",
+      "area": "Main Street",
+      "notes": "Fresh seafood, grilled dishes, and outdoor dining. Michelin-recommended.",
+      "website": "https://www.dubrovnikny.com/"
+    },
+    {
+      "name": "Modern Restaurant and Lounge",
+      "cuisine": "Italian",
+      "area": "Downtown",
+      "notes": "Homestyle Italian cuisine, great for families and celebrations.",
+      "website": "https://www.modernrestaurant.com/"
+    },
+    {
+      "name": "The Wooden Spoon",
+      "cuisine": "American Comfort",
+      "area": "North Ave (North)",
+      "notes": "Burgers, mac & cheese, and other comfort foods.",
+      "website": "https://www.woodenspoonnewro.com/"
+    },
+    {
+      "name": "Little Mexican Cafe",
+      "cuisine": "Mexican",
+      "area": "Downtown",
+      "notes": "Authentic Mexican cuisine and cocktails.",
+      "website": "https://www.littlemexicancafe.com/"
+    },
+    {
+      "name": "Krave",
+      "cuisine": "Caribbean / New American",
+      "area": "Downtown",
+      "notes": "Vibrant atmosphere with a mix of Caribbean and American dishes.",
+      "website": "https://kravenewrochelle.com/"
+    },
+    {
+      "name": "Kenny's on the Water",
+      "cuisine": "Pizza / Italian / Seafood",
+      "area": "Sound Shore",
+      "notes": "Seafood and Italian, right on the Sound.",
+      "website": "https://kennysontthewater.com/"
+    },
+    {
+      "name": "179 Bar and Grill",
+      "cuisine": "Modern American / Italian",
+      "area": "Downtown (East)",
+      "notes": "Elevated dishes, handcrafted cocktails, and a warm ambiance.",
+      "website": "https://179barandgrill.com/"
+    }
+  ]
+}

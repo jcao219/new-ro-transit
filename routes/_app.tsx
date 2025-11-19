@@ -2,7 +2,7 @@
 import { type PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
 
-const SITE_NAME = "NewRoTransitInfo";
+const SITE_NAME = "New Rochelle Info";
 
 export default function App({ Component }: PageProps) {
   return (
@@ -22,17 +22,18 @@ export default function App({ Component }: PageProps) {
         />
       </Head>
       <body class="bg-gray-100 text-gray-800">
-          <nav class="container mx-auto flex justify-between items-center p-4">
-            <a href="/" class="text-2xl font-bold text-blue-700 hover:text-blue-800">
-              {SITE_NAME}
-            </a>
-            <div class="space-x-4">
-              <a href="/" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
-              <a href="/commute" class="text-gray-700 hover:text-blue-600 font-medium">Commute</a>
-              <a href="/map" class="text-gray-700 hover:text-blue-600 font-medium">Map</a>
-              {/* Add links to future pages: /about, /landmarks etc. */}
-            </div>
-          </nav>
+        <nav class="container mx-auto flex justify-between items-center p-4">
+          <a href="/" class="text-2xl font-bold text-blue-700 hover:text-blue-800">
+            {SITE_NAME}
+          </a>
+          <div class="space-x-4">
+            <a href="/" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+            <a href="/commute" class="text-gray-700 hover:text-blue-600 font-medium">Commute</a>
+            <a href="/map" class="text-gray-700 hover:text-blue-600 font-medium">Map</a>
+            <a href="/restaurants" class="text-gray-700 hover:text-blue-600 font-medium">Restaurants</a>
+            {/* Add links to future pages: /about, /landmarks etc. */}
+          </div>
+        </nav>
 
         {/* Render the specific page component here */}
         <main class="container mx-auto p-4 md:p-6">
