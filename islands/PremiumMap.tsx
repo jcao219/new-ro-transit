@@ -85,10 +85,14 @@ export default function PremiumMap(
     const flyToLocation = (loc: Location) => {
         if (!map.current || !loc.coords) return;
 
-        if (activeLocation) {
-            locationToMarker.current.get(activeLocation)?.getElement().classList.remove("animate-pulse");
-        }
+        // Remove pulse animation from all markers
+        locationToMarker.current.forEach((marker) => {
+            marker.getElement().classList.remove("animate-pulse");
+        });
+
         setActiveLocation(loc);
+
+        // Add pulse animation to the selected marker
         locationToMarker.current.get(loc)?.getElement().classList.add("animate-pulse");
 
         map.current.flyTo({
