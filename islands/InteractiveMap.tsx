@@ -56,7 +56,7 @@ export default function InteractiveMap() {
   const mapInstance = useRef<unknown>(null); // To hold the Leaflet map instance
 
   useEffect(() => {
-    // Dynamically import Leaflet only on the client-side
+    // Dynamically import and load Leaflet only on the client-side.
     if (mapRef.current != null && mapInstance.current == null) {
       loadLeaflet(mapRef.current)
         .then(map => mapInstance.current = map)
@@ -79,7 +79,7 @@ export default function InteractiveMap() {
         {/* Ensure Leaflet JS is loaded before this component renders fully */}
       </Head>
       {/* The div needs explicit height */}
-      <div ref={mapRef} style={{ height: "600px", width: "100%" }}>
+      <div ref={mapRef} style={{ height: "60vh", width: "100%" }}>
          {/* Map will be rendered here by Leaflet */}
          Loading map...
       </div>
