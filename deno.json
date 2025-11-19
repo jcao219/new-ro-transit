@@ -2,10 +2,20 @@
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check",
     "build": "vite build",
-    "preview": "deno serve -A _fresh/server.js"
+    "preview": "deno serve -A _fresh/server.js",
+    "demo": "vite demo"
   },
-  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
-  "exclude": ["**/_fresh/*"],
+  "lint": {
+    "rules": {
+      "tags": [
+        "fresh",
+        "recommended"
+      ]
+    }
+  },
+  "exclude": [
+    "**/_fresh/*"
+  ],
   "imports": {
     "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@^1.0.8",
     "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.1.17",
@@ -17,6 +27,9 @@
     "vite": "npm:vite@^7.2.2",
     "@std/dotenv": "jsr:@std/dotenv@^0.217.0"
   },
-  "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  },
   "nodeModulesDir": "auto"
 }

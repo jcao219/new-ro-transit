@@ -19,7 +19,8 @@ export default function PremiumMap(
 ) {
     const mapContainer = useRef<HTMLDivElement>(null);
     const map = useRef<mapboxgl.Map | null>(null);
-    const [activeLocation, setActiveLocation] = useState<Location | null>(null);
+    const locationToMarker = useRef(new Map<Location, mapboxgl.Marker>());
+    const [activeLocation, setActiveLocation] = useState<Location | undefined>();
     const [filter, setFilter] = useState<"all" | "restaurant" | "landmark">(
         "all",
     );
@@ -41,45 +42,7 @@ export default function PremiumMap(
         map.current.on("load", () => {
             if (!map.current) return;
 
-            // Add 3D buildings layer
-            const layers = map.current.getStyle()?.layers;
-            const labelLayerId = layers?.find(
-                (layer) => layer.type === "symbol" && layer.layout?.["text-field"],
-            )?.id;
-
-            map.current.addLayer(
-                {
-                    id: "add-3d-buildings",
-                    source: "composite",
-                    "source-layer": "building",
-                    filter: ["==", "extrude", "true"],
-                    type: "fill-extrusion",
-                    minzoom: 15,
-                    paint: {
-                        "fill-extrusion-color": "#aaa",
-                        "fill-extrusion-height": [
-                            "interpolate",
-                            ["linear"],
-                            ["zoom"],
-                            15,
-                            0,
-                            15.05,
-                            ["get", "height"],
-                        ],
-                        "fill-extrusion-base": [
-                            "interpolate",
-                            ["linear"],
-                            ["zoom"],
-                            15,
-                            0,
-                            15.05,
-                            ["get", "min_height"],
-                        ],
-                        "fill-extrusion-opacity": 0.6,
-                    },
-                },
-                labelLayerId,
-            );
+            locationToMarker.current.clear();
 
             // Add markers
             locations.forEach((loc) => {
@@ -106,7 +69,7 @@ export default function PremiumMap(
                     flyToLocation(loc);
                 });
 
-                new mapboxgl.Marker(el)
+                locationToMarker.current.set(loc, new mapboxgl.Marker({ element: el })
                     .setLngLat(loc.coords)
                     .setPopup(
                         new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -114,7 +77,7 @@ export default function PremiumMap(
                             }</p>`,
                         ),
                     )
-                    .addTo(map.current!);
+                    .addTo(map.current!));
             });
         });
     }, [accessToken, locations]);
@@ -122,7 +85,11 @@ export default function PremiumMap(
     const flyToLocation = (loc: Location) => {
         if (!map.current || !loc.coords) return;
 
+        if (activeLocation) {
+            locationToMarker.current.get(activeLocation)?.getElement().classList.remove("animate-pulse");
+        }
         setActiveLocation(loc);
+        locationToMarker.current.get(loc)?.getElement().classList.add("animate-pulse");
 
         map.current.flyTo({
             center: loc.coords,
@@ -138,13 +105,10 @@ export default function PremiumMap(
     );
 
     return (
-        <div class="relative w-full h-screen">
-            {/* Map Container */}
-            <div ref={mapContainer} class="absolute inset-0 w-full h-full" />
-
-            {/* Glassmorphism Sidebar */}
-            <div class="absolute top-4 left-4 bottom-4 w-80 bg-black/30 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-white overflow-y-auto shadow-2xl z-10 hidden md:block">
-                <h1 class="text-2xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+        <div class="flex w-full h-screen">
+            {/* Glassmorphism Sidebar - Sticks to left */}
+            <div class="w-80 bg-black/30 backdrop-blur-md border-r border-white/10 p-6 text-white overflow-y-auto shadow-2xl z-10 hidden md:block">
+                <h1 class="text-2xl font-bold mb-2 text-gray-200">
                     New Ro Explorer
                 </h1>
                 <p class="text-sm text-gray-300 mb-6">
@@ -214,10 +178,15 @@ export default function PremiumMap(
                 </div>
             </div>
 
-            {/* Mobile Bottom Sheet (Simplified) */}
-            <div class="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md border border-white/10 rounded-xl p-4 md:hidden z-10">
-                <h2 class="text-white font-bold">New Ro Explorer</h2>
-                <p class="text-gray-300 text-xs">Tap markers to explore.</p>
+            {/* Map Container - Takes remaining space */}
+            <div class="flex-1 relative">
+                <div ref={mapContainer} class="absolute inset-0 w-full h-full" />
+
+                {/* Mobile Bottom Sheet (Simplified) */}
+                <div class="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md border border-white/10 rounded-xl p-4 md:hidden z-10">
+                    <h2 class="text-white font-bold">New Ro Explorer</h2>
+                    <p class="text-gray-300 text-xs">Tap markers to explore.</p>
+                </div>
             </div>
         </div>
     );
