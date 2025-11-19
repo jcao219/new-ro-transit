@@ -1,0 +1,81 @@
+{
+  "restaurants": [
+    {
+      "name": "Roc N' Ramen",
+      "cuisine": "Authentic Japanese Ramen with Unique Caribbean Influence",
+      "area": "Downtown / Vanguard District",
+      "notes": "Delicious take on Ramen and Donburi. For lunch or dinner.",
+      "website": "https://www.rocnramen.com/",
+      "coords": [
+        -73.78097253970179,
+        40.91118659871518
+      ]
+    },
+    {
+      "name": "Maria",
+      "cuisine": "Italian",
+      "area": "Downtown (East)",
+      "notes": "Michelin recommended",
+      "website": "https://www.mariasnewrochelle.com/",
+      "coords": [
+        -73.77379242591272,
+        40.91435414027935
+      ]
+    },
+    {
+      "name": "Dubrovnik Restaurant",
+      "cuisine": "Croatian / Mediterranean",
+      "area": "Main Street",
+      "notes": "Fresh seafood, grilled dishes, and outdoor dining. Michelin-recommended.",
+      "website": "https://www.dubrovnikny.com/",
+      "coords": [
+        -73.78914977208814,
+        40.90366052606788
+      ]
+    },
+    {
+      "name": "Modern Restaurant and Lounge",
+      "cuisine": "Italian",
+      "area": "Downtown",
+      "notes": "Homestyle Italian cuisine, great for families and celebrations.",
+      "website": "https://www.modernrestaurant.com/",
+      "coords": [
+        -73.78415566857443,
+        40.90908169921721
+      ]
+    },
+    {
+      "name": "The Wooden Spoon",
+      "cuisine": "American Comfort",
+      "area": "North Ave (North)",
+      "notes": "Burgers, mac & cheese, and other comfort foods.",
+      "website": "https://www.woodenspoonnewro.com/",
+      "coords": [
+        -73.79603468638956,
+        40.945892037543686
+      ]
+    },
+    {
+      "name": "Krave",
+      "cuisine": "Caribbean / New American",
+      "area": "Downtown",
+      "notes": "Vibrant atmosphere with a mix of Caribbean and American dishes.",
+      "website": "https://kravenewrochelle.com/",
+      "coords": [
+        -73.78222682107499,
+        40.90816984750477
+      ]
+    },
+    {
+      "name": "Kenny's on the Water",
+      "cuisine": "Pizza / Italian / Seafood",
+      "area": "Sound Shore",
+      "notes": "Seafood and Italian, right on the Sound.",
+      "website": "https://kennysontthewater.com/",
+      "coords": [
+        -73.77191386203533,
+        40.908969526476845
+      ]
+    }
+  ]
+}

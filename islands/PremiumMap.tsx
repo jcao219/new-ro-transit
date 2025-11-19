@@ -27,16 +27,14 @@ export default function PremiumMap(
     useEffect(() => {
         if (map.current || !mapContainer.current) return;
 
-        // deno-lint-ignore no-explicit-any
-        (mapboxgl as any).accessToken = accessToken;
-
         map.current = new mapboxgl.Map({
+            accessToken,
             container: mapContainer.current,
             style: "mapbox://styles/mapbox/standard",
             center: [-73.780968, 40.911488], // New Rochelle center
-            zoom: 15,
-            pitch: 55, // Tilt for 3D effect
-            bearing: -17.6,
+            zoom: 16,
+            pitch: 60, // Tilt for 3D effect
+            bearing: 0,
             antialias: true,
         });
 
