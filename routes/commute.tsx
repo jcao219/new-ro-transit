@@ -5,10 +5,6 @@ import { define } from "@/utils.ts";
 // Import the full JSON structure
 import transitData from "@/data/transit.json" with { type: "json" };
 
-type TransitData = {
-  commutes: CommuteInfo[];
-};
-
 // Define the shape of a single commute item
 interface CommuteInfo {
   destination: string;
@@ -16,14 +12,13 @@ interface CommuteInfo {
   time: string;
   frequency: string;
   notes: string;
-  coords?: [number, number]; // Optional coordinates
 }
 
 // Handler to load data (runs on the server)
 export const handler = define.handlers({
   GET(_ctx) {
     // Extract the commutes array from the imported JSON data
-    const commutes: CommuteInfo[] = transitData.commutes as CommuteInfo[];
+    const commutes = transitData.commutes as CommuteInfo[];
     // Pass the data to the rendering context
     return page({ commutes });
   },

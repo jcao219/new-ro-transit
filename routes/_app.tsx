@@ -59,6 +59,7 @@ export default define.page(function App({ Component, state }) {
           <p>
             &copy; {new Date().getFullYear()}{" "}
             | Jimmy C (VimPro) of Downtown New Rochelle
+            | {state.visits} visits as of {new Date().toLocaleString()}
           </p>
           <span class="row">
             <label for="src_repo">
