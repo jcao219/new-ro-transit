@@ -76,6 +76,17 @@
         -73.77191386203533,
         40.908969526476845
       ]
+    },
+    {
+      "name": "Texas Roadhouse",
+      "cuisine": "American, Affordable Steakhouse",
+      "area": "Downtown",
+      "notes": "Large restaurant that is a notch above Outback Steakhouse. Texas hospitality.",
+      "website": "https://www.texasroadhouse.com/locations/453-new-rochelleny",
+      "coords": [
+        -73.781731,
+        40.912378
+      ]
     }
   ]
 }

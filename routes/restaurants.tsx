@@ -3,7 +3,7 @@ import { page } from "fresh";
 import { Head } from "fresh/runtime";
 import { define } from "../utils.ts";
 // Import the full JSON structure
-import restaurantData from "../data/eats.json" with { type: "json" };
+import restaurantData from "../data/restaurants.json" with { type: "json" };
 
 type TransitData = {
   restaurants: RestaurantInfo[];
@@ -14,6 +14,7 @@ interface RestaurantInfo {
   name: string;
   cuisine: string;
   area: string;
+  coords: number[];
   notes?: string; // Optional notes
   website?: string; // Optional website link
 }

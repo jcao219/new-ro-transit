@@ -64,7 +64,9 @@ export default define.page(function App({ Component }) {
             | Jimmy C (VimPro) of Downtown New Rochelle
           </p>
           <span class="row">
-            <label for="src_repo">Built with Deno & Fresh & Gemini 2.5:</label>
+            <label for="src_repo">
+              Built with Deno & Fresh & Gemini 2.5: &nbsp;
+            </label>
             <a
               id="src_repo"
               href="https://github.com/jcao219/new-ro-transit"

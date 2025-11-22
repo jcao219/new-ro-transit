@@ -1,9 +1,9 @@
 {
   "tasks": {
+    "dev": "vite",
     "check": "deno fmt --check && deno lint && deno check",
     "build": "vite build",
-    "preview": "deno serve -A _fresh/server.js",
-    "demo": "vite demo"
+    "preview": "deno serve -A _fresh/server.js"
   },
   "lint": {
     "rules": {

@@ -31,22 +31,22 @@ export default define.page(function Home() {
             Discover New Rochelle: Waterfront living, vibrant community, and a
             {" "}
             <span class="font-semibold text-green-900">
-              ~32 minute express train
+              ~28-37 minute train
             </span>{" "}
-            to Grand Central Terminal.
+            to Grand Central.
           </p>
           <div class="flex flex-col sm:flex-row justify-center gap-4">
             <a
               href="/commute"
               class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md text-lg transition duration-300 ease-in-out transform hover:scale-105"
             >
-              See Commute Times
+              Commute Times
             </a>
             <a
               href="/map"
               class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-md text-lg transition duration-300 ease-in-out transform hover:scale-105"
             >
-              View Transit Map
+              Interactive City Map
             </a>
           </div>
         </div>
