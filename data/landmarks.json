@@ -1,64 +1,64 @@
 {
-    "landmarks": [
-        {
-            "name": "New Rochelle Train Station",
-            "coords": [
-                -73.78419731493005,
-                40.911442047675884
-            ],
-            "type": "transit",
-            "description": "Main transit hub connecting to NYC and beyond.",
-            "website": "https://new.mta.info/station/new-rochelle"
-        },
-        {
-            "name": "Hudson Park & Beach",
-            "coords": [
-                -73.76930610792637,
-                40.90761179155292
-            ],
-            "type": "park",
-            "description": "Scenic waterfront park with beach access.",
-            "website": ""
-        },
-        {
-            "name": "Iona University",
-            "coords": [
-                -73.78635957000718,
-                40.927075926454634
-            ],
-            "type": "education",
-            "description": "Private Catholic university with a beautiful campus.",
-            "website": "https://www.iona.edu/"
-        },
-        {
-            "name": "New Roc City",
-            "coords": [
-                -73.78007056425663,
-                40.911639616113476
-            ],
-            "type": "entertainment",
-            "description": "Entertainment complex with movies, bowling, and dining.",
-            "website": ""
-        },
-        {
-            "name": "Five Islands Park",
-            "coords": [
-                -73.76538458891925,
-                40.91140121157908
-            ],
-            "type": "park",
-            "description": "Waterfront park with walking trails and picnic areas.",
-            "website": ""
-        },
-        {
-            "name": "New Rochelle Public Library",
-            "coords": [
-                -73.78239353171521,
-                40.90985871372246
-            ],
-            "type": "civic",
-            "description": "Main public library serving the community.",
-            "website": "https://www.nrpl.org/"
-        }
-    ]
+  "landmarks": [
+    {
+      "name": "New Rochelle Train Station",
+      "coords": [
+        -73.78419731493005,
+        40.911442047675884
+      ],
+      "type": "transit",
+      "description": "Main transit hub connecting to NYC and beyond.",
+      "website": "https://new.mta.info/station/new-rochelle"
+    },
+    {
+      "name": "Hudson Park & Beach",
+      "coords": [
+        -73.76930610792637,
+        40.90761179155292
+      ],
+      "type": "park",
+      "description": "Scenic waterfront park with beach access.",
+      "website": ""
+    },
+    {
+      "name": "Iona University",
+      "coords": [
+        -73.78635957000718,
+        40.927075926454634
+      ],
+      "type": "education",
+      "description": "Private Catholic university with a beautiful campus.",
+      "website": "https://www.iona.edu/"
+    },
+    {
+      "name": "New Roc City",
+      "coords": [
+        -73.78007056425663,
+        40.911639616113476
+      ],
+      "type": "entertainment",
+      "description": "Entertainment complex with IMAX movies, escape rooms, and dining.",
+      "website": ""
+    },
+    {
+      "name": "Five Islands Park",
+      "coords": [
+        -73.76538458891925,
+        40.91140121157908
+      ],
+      "type": "park",
+      "description": "Waterfront park with walking trails and picnic areas.",
+      "website": ""
+    },
+    {
+      "name": "New Rochelle Public Library",
+      "coords": [
+        -73.78239353171521,
+        40.90985871372246
+      ],
+      "type": "civic",
+      "description": "Main public library serving the community.",
+      "website": "https://www.nrpl.org/"
+    }
+  ]
 }

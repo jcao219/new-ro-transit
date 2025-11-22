@@ -21,7 +21,6 @@
     "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.1.17",
     "mapbox-gl": "npm:mapbox-gl@^3.16.0",
     "preact": "npm:preact@^10.27.2",
-    "@preact/signals": "npm:@preact/signals@^2.5.0",
     "tailwindcss": "npm:tailwindcss@^4.1.17",
     "fresh": "jsr:@fresh/core@^2.2.0",
     "vite": "npm:vite@^7.2.2",
