@@ -1,14 +1,10 @@
 import { define } from "@/utils.ts";
 
-interface AppState {
-  visits: number;
-}
-
 export const stateMiddleware = define.middleware(async (ctx) => {
-  const kv = await Deno.openKv();
   const key = ["visits"];
 
   try {
+    const kv = await Deno.openKv();
     await kv.atomic().sum(key, 1n).commit();
     const res = await kv.get<number>(key);
     ctx.state.visits = res.value ?? 0;

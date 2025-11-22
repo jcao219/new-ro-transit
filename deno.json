@@ -3,7 +3,7 @@
     "dev": "vite",
     "check": "deno fmt --check && deno lint && deno check",
     "build": "vite build",
-    "preview": "deno serve --tunnel -A _fresh/server.js"
+    "preview": "deno serve --unstable-kv -A _fresh/server.js"
   },
   "lint": {
     "rules": {

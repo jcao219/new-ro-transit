@@ -58,8 +58,8 @@ export default define.page(function App({ Component, state }) {
         <footer class="text-center py-6 mt-10 text-gray-500 text-sm border-t border-gray-200">
           <p>
             &copy; {new Date().getFullYear()}{" "}
-            | Jimmy C (VimPro) of Downtown New Rochelle
-            | {state.visits} visits as of {new Date().toLocaleString()}
+            | Jimmy C (VimPro) of Downtown New Rochelle | {state.visits}{" "}
+            visits as of {new Date().toLocaleString()}
           </p>
           <span class="row">
             <label for="src_repo">
