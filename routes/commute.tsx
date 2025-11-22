@@ -1,9 +1,9 @@
 // routes/commute.tsx
 import { page } from "fresh";
 import { Head } from "fresh/runtime";
-import { define } from "../utils.ts";
+import { define } from "@/utils.ts";
 // Import the full JSON structure
-import transitData from "../data/transit.json" with { type: "json" };
+import transitData from "@/data/transit.json" with { type: "json" };
 
 type TransitData = {
   commutes: CommuteInfo[];

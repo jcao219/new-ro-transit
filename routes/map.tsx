@@ -1,10 +1,10 @@
 // routes/map.tsx
 import { page } from "fresh";
 import { Head } from "fresh/runtime";
-import { define } from "../utils.ts";
-import PremiumMap from "../islands/PremiumMap.tsx";
-import restaurantData from "../data/restaurants.json" with { type: "json" };
-import landmarkData from "../data/landmarks.json" with { type: "json" };
+import { define } from "@/utils.ts";
+import PremiumMap from "@/islands/PremiumMap.tsx";
+import restaurantData from "@/data/restaurants.json" with { type: "json" };
+import landmarkData from "@/data/landmarks.json" with { type: "json" };
 
 export const handler = define.handlers({
   GET(_ctx) {

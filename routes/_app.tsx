@@ -1,13 +1,11 @@
-// routes/_app.tsx
-import { Head } from "fresh/runtime";
-import { define } from "../utils.ts";
+import { define } from "@/utils.ts";
 
 const SITE_NAME = "New Rochelle Info";
 
-export default define.page(function App({ Component }) {
+export default define.page(function App({ Component, state }) {
   return (
     <html lang="en">
-      <Head>
+      <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>New Rochelle: Your Connected Urban Oasis</title>
@@ -15,9 +13,8 @@ export default define.page(function App({ Component }) {
           name="description"
           content="Discover why New Rochelle's unbeatable transit connections make it the perfect place to live for NYC commuters."
         />
-        {/* Link to the Tailwind CSS output file */}
         <link rel="stylesheet" href="/styles.css" />
-      </Head>
+      </head>
 
       <body class="bg-gray-100 text-gray-800">
         <nav class="container mx-auto flex justify-between items-center p-4">

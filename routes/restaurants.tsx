@@ -1,9 +1,9 @@
 // routes/restaurants.tsx
 import { page } from "fresh";
 import { Head } from "fresh/runtime";
-import { define } from "../utils.ts";
+import { define } from "@/utils.ts";
 // Import the full JSON structure
-import restaurantData from "../data/restaurants.json" with { type: "json" };
+import restaurantData from "@/data/restaurants.json" with { type: "json" };
 
 type TransitData = {
   restaurants: RestaurantInfo[];
